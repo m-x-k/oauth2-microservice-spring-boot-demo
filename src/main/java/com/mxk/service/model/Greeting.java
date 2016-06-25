@@ -1,20 +1,19 @@
 package com.mxk.service.model;
 
 public class Greeting {
-    private final String hello;
-    private final String world;
+    private final String first;
+    private final String second;
 
-    public Greeting(String hello, String world) {
-
-        this.hello = hello;
-        this.world = world;
+    public Greeting(String first, String second) {
+        this.first = first;
+        this.second = second;
     }
 
-    public String getHello() {
-        return hello;
+    public String getFirst() {
+        return first;
     }
 
-    public String getWorld() {
-        return world;
+    public String getSecond() {
+        return second;
     }
 }

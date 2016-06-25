@@ -16,10 +16,12 @@ dependencies {
     compile 'org.apache.httpcomponents:httpclient:4.5.2'
 
     compile group: 'com.google.inject', name: 'guice', version: '3.0'
-
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.7'
     compile group: 'info.cukes', name: 'cucumber-junit', version:cucumberVersion
     compile group: 'info.cukes', name: 'cucumber-java', version:cucumberVersion
     compile group: 'info.cukes', name: 'cucumber-picocontainer', version:cucumberVersion
+
+    compile 'junit:junit:4.12'
 }
 
 configurations {

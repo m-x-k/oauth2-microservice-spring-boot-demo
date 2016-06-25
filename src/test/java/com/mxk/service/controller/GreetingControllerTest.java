@@ -12,7 +12,7 @@ public class GreetingControllerTest {
     @Test
     public void testHello() throws Exception {
         Greeting greeting = greetingController.hello();
-        assertEquals("hello" , greeting.getHello());
-        assertEquals("world" , greeting.getWorld());
+        assertEquals("hello" , greeting.getFirst());
+        assertEquals("world" , greeting.getSecond());
     }
 }
