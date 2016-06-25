@@ -1,1 +1,2 @@
+include 'acceptanceTests'
 rootProject.name = 'rest-microservice'

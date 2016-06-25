@@ -1,0 +1,38 @@
+apply plugin: 'java'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+repositories {
+    jcenter()
+}
+
+ext.cucumberVersion = '1.2.4'
+
+dependencies {
+    compile 'org.apache.httpcomponents:httpclient:4.5.2'
+
+    compile group: 'com.google.inject', name: 'guice', version: '3.0'
+
+    compile group: 'info.cukes', name: 'cucumber-junit', version:cucumberVersion
+    compile group: 'info.cukes', name: 'cucumber-java', version:cucumberVersion
+    compile group: 'info.cukes', name: 'cucumber-picocontainer', version:cucumberVersion
+}
+
+configurations {
+    cucumberRuntime.extendsFrom testRuntime
+}
+
+task RunTests() {
+    dependsOn assemble, compileTestJava
+    doLast {
+        javaexec {
+            main = "cucumber.api.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            args = ['--glue', '', 'features/', '--plugin', "json:reports/cucumber.json", '--plugin', "html:reports"]
+        }
+    }
+}
